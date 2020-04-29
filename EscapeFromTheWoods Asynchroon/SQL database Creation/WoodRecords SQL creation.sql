@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[WoodRecords]
+(
+	[recordId] INT PRIMARY KEY IDENTITY,
+	[woodID] INT NOT NULL,
+	[treeID] INT NOT NULL,
+	[X] INT NOT NULL,
+	[Y] INT NOT NULL
+)

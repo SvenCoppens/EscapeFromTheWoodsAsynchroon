@@ -1,0 +1,3 @@
+﻿DELETE FROM Logs
+DELETE FROM MonkeyRecords
+DELETE FROM WoodRecords
