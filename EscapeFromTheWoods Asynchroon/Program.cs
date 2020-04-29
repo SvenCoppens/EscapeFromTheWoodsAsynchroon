@@ -9,6 +9,7 @@ namespace EscapeFromTheWoods_Asynchroon
     {
         static void Main(string[] args)
         {
+            //test
             Console.WriteLine("Start Program");
             MonkeyGenerator monkeyFactory = new MonkeyGenerator();
             WoodGenerator woodFactory = new WoodGenerator(monkeyFactory);
