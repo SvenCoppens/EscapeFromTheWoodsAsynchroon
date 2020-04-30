@@ -50,7 +50,7 @@ namespace EscapeFromTheWoods_Asynchroon.Models
         public bool AdvanceOneStep()
         {
             _escapedMonkeys = 0;
-            foreach(Monkey monkey in Monkeys)
+            foreach(iMonkey monkey in Monkeys)
             {
                 if (!monkey.Escaped)
                 {
