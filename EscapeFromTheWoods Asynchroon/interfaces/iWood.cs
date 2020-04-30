@@ -9,5 +9,8 @@ namespace EscapeFromTheWoods_Asynchroon.interfaces
         int Id { get; set; }
         int maximumX { get; set; }
         int MaximumY { get; set; }
+        List<iMonkey> Monkeys { get; set; }
+        List<iTree> Trees { get; set; }
+        void LetTheMonkeysLoose();
     }
 }

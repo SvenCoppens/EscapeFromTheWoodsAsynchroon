@@ -7,12 +7,12 @@ using System.Text;
 
 namespace EscapeFromTheWoods_Asynchroon.Factories
 {
-    class MonkeyGenerator : iMonkeyGenerator
+    class MonkeyFactory : iMonkeyFactory
     {
-        private List<Monkey> Monkeys { get; set; }
+        private List<iMonkey> Monkeys { get; set; }
         private Dictionary<int, string> MonkeyNames { get; set; }
         private string MonkeyPath { get; set; }
-        public MonkeyGenerator()
+        public MonkeyFactory()
         {
             MonkeyNames = new Dictionary<int, string>();
             MonkeyPath = @"D:\Programmeren Data en Bestanden\EscapeFromTheWoods\Monkeys.txt";
@@ -20,7 +20,7 @@ namespace EscapeFromTheWoods_Asynchroon.Factories
         }
         private void LoadMonkeys()
         {
-            Monkeys = new List<Monkey>();
+            Monkeys = new List<iMonkey>();
             if (File.Exists(MonkeyPath))
             {
                 using(StreamReader reader = File.OpenText(MonkeyPath))
@@ -48,15 +48,27 @@ namespace EscapeFromTheWoods_Asynchroon.Factories
                 }
             }
         }
-        public List<Monkey> GenerateMonkeys(int amount)
+        public List<iMonkey> GetMonkeys(int amount,MonkeyTypes monkeytype)
         {
-            List<Monkey> monkeyResult = new List<Monkey>();
+            switch (monkeytype)
+            {
+                case MonkeyTypes.Standard:
+                    return GenerateDefaultMonkeys(amount);
+                default:
+                    return GenerateDefaultMonkeys(amount);
+            }
+        }
+        public List<iMonkey> GenerateDefaultMonkeys(int amount)
+        {
+            List<iMonkey> monkeyResult = new List<iMonkey>();
             if (Monkeys.Count < amount)
             {
                 for (int i = monkeyResult.Count; i < amount; i++)
                 {
-                    CreateMonkey();
+                    //load enough monkeys to fill the Wood
+                    FillMonkeyReserve();
                 }
+                //save the monkeys to the local file
                 SaveMonkeys();
             }
             for (int i = 0; i < amount; i++)
@@ -66,7 +78,7 @@ namespace EscapeFromTheWoods_Asynchroon.Factories
             }
             return monkeyResult;
         }
-        private void CreateMonkey()
+        private void FillMonkeyReserve()
         {
             int Id = Monkeys.Count + 1;
             if (Id < MonkeyNames.Count)

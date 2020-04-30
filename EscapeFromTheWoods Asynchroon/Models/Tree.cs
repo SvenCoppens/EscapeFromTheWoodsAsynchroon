@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EscapeFromTheWoods_Asynchroon.Models
 {
-    class Tree : IEquatable<Tree>
+    class Tree : IEquatable<Tree>,iTree
     {
         public int X { get; set; }
         public int Y { get; set; }

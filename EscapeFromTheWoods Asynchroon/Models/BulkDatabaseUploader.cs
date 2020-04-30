@@ -1,4 +1,5 @@
 ﻿using EscapeFromTheWoods_Asynchroon.Models;
+using EscapeFromTheWoods_Asynchroon.interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,20 +8,20 @@ using System.Text;
 
 namespace EscapeFromTheWoods_Asynchroon
 {
-    class DatabaseWriter
+    class BulkDatabaseUploader : iDatabaseFiller
     {
         private string _connectionString = @"Data Source=DESKTOP-VCI7746\SQLEXPRESS;Initial Catalog=EscapeFromTheWoods;Integrated Security=True";
         private SqlConnection GetConnection() => new SqlConnection(_connectionString);
 
-        public void FillDataBase(Wood wood)
+        public void FillDataBase(iWood wood)
         {
             Console.WriteLine($"DATABASE: Started Writing to database for {wood.Id}");
-            BulkTrees(wood);
-            BulkMonkeyRecords(wood);
-            BulkLogs(wood);
+            UploadWoodRecords(wood);
+            UploadMonkeyRecords(wood);
+            UploadLogs(wood);
             Console.WriteLine($"DATABASE: Finished writing to database for {wood.Id}");
         }
-        public void BulkLogs(Wood wood)
+        public void UploadLogs(iWood wood)
         {
             using (SqlConnection connection = GetConnection())
             {
@@ -48,7 +49,7 @@ namespace EscapeFromTheWoods_Asynchroon
                 }
             }
         }
-        public void BulkTrees(Wood wood)
+        public void UploadWoodRecords(iWood wood)
         {
             using(SqlConnection connection = GetConnection())
             {
@@ -73,7 +74,7 @@ namespace EscapeFromTheWoods_Asynchroon
                 }
             }
         }
-        public void BulkMonkeyRecords(Wood wood)
+        public void UploadMonkeyRecords(iWood wood)
         {
             using (SqlConnection connection = GetConnection())
             {

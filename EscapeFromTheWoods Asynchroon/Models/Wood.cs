@@ -11,10 +11,10 @@ namespace EscapeFromTheWoods_Asynchroon.Models
         public int Id { get; set; }
         public int maximumX { get; set; }
         public int MaximumY { get; set; }
-        public List<Tree> Trees { get; set; }
-        public List<Monkey> Monkeys { get; set; }
+        public List<iTree> Trees { get; set; }
+        public List<iMonkey> Monkeys { get; set; }
         private int _escapedMonkeys = 0;
-        public Wood(int id,int X,int Y,List<Monkey> monkeys,List<Tree> trees)
+        public Wood(int id,int X,int Y,List<iMonkey> monkeys,List<iTree> trees)
         {
             Id = id;
             maximumX = X;
@@ -34,7 +34,7 @@ namespace EscapeFromTheWoods_Asynchroon.Models
                 {
                     index = random.Next(Trees.Count);
                 }
-                Monkeys[i].VisitedTrees.Add(Trees[index]);
+                Monkeys[i].VisitedTrees = new List<iTree> { Trees[index] };
             }
         }
         public void LetTheMonkeysLoose()
@@ -49,36 +49,17 @@ namespace EscapeFromTheWoods_Asynchroon.Models
         }
         public bool AdvanceOneStep()
         {
+            _escapedMonkeys = 0;
             foreach(Monkey monkey in Monkeys)
             {
                 if (!monkey.Escaped)
                 {
-                    JumpToNextTree(monkey);
+                    monkey.JumpToNextTree(this);
                 }
+                else
+                    _escapedMonkeys++;
             }
             return _escapedMonkeys == Monkeys.Count;
         }
-        public void JumpToNextTree(Monkey monkey)
-        {
-            Tree currentTree = monkey.VisitedTrees[monkey.VisitedTrees.Count - 1];
-            int currentX = currentTree.X;
-            int currentY = currentTree.Y;
-
-            List<Tree> tempTrees = Trees.Except(monkey.VisitedTrees).ToList();
-            tempTrees = tempTrees.OrderBy(t => Math.Sqrt(Math.Pow(t.X - currentX, 2) + Math.Pow(t.Y - currentY, 2))).ToList();
-            double distanceToBorder = (new List<Double>() { MaximumY - currentY, maximumX - currentX, currentY, currentX }).Min();
-
-            double distanceToClosestTree = Math.Sqrt(Math.Pow(tempTrees[0].X - currentX, 2) + Math.Pow(tempTrees[0].Y - currentY, 2));
-            if (distanceToBorder <= distanceToClosestTree)
-            {
-                _escapedMonkeys++;
-                monkey.HasEscaped();
-            }
-            else
-            {
-                monkey.VisitedTrees.Add(tempTrees[0]);
-            }
-        }
-        
     }
 }

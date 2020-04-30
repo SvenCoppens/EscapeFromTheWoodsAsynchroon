@@ -4,10 +4,8 @@ using System.Text;
 
 namespace EscapeFromTheWoods_Asynchroon.interfaces
 {
-    interface iTree
+    interface iWoodFactory
     {
-        int X { get; set; }
-        int Y { get; set; }
-        int ID { get; set; }
+        iWood CreateWood(int maxX, int maxY, int numberOfTrees,List<iMonkey> monkeys);
     }
 }

@@ -1,6 +1,8 @@
 ﻿using EscapeFromTheWoods_Asynchroon.Factories;
+using EscapeFromTheWoods_Asynchroon.interfaces;
 using EscapeFromTheWoods_Asynchroon.Models;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace EscapeFromTheWoods_Asynchroon
@@ -11,14 +13,16 @@ namespace EscapeFromTheWoods_Asynchroon
         {
             //test
             Console.WriteLine("Start Program");
-            MonkeyGenerator monkeyFactory = new MonkeyGenerator();
-            WoodGenerator woodFactory = new WoodGenerator(monkeyFactory);
-            DatabaseWriter dbWriter = new DatabaseWriter();
+            iWoodFactory woodFactory = new WoodFactory();
+            iMonkeyFactory monkeyFactory = new MonkeyFactory();
+            iDatabaseFiller dbWriter = new BulkDatabaseUploader();
             ReportWriter reportWriter = new ReportWriter();
             BitmapDrawer mapDrawer = new BitmapDrawer();
 
-            var wood1 = woodFactory.CreateWood(100, 100, 4,500);
-            var wood2 = woodFactory.CreateWood(200, 200, 3, 800);
+            List<iMonkey> monkeys1 = monkeyFactory.GetMonkeys(4, MonkeyTypes.Standard);
+            List<iMonkey> monkeys2 = monkeyFactory.GetMonkeys(8, MonkeyTypes.Standard);
+            var wood1 = woodFactory.CreateWood(100, 100,500,monkeys1);
+            var wood2 = woodFactory.CreateWood(200, 200,1500,monkeys2);
             Thread letLooseW1 = new Thread(wood1.LetTheMonkeysLoose);
             letLooseW1.Start();
             Thread letLooseW2 = new Thread(wood2.LetTheMonkeysLoose);

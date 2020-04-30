@@ -1,4 +1,5 @@
-﻿using EscapeFromTheWoods_Asynchroon.Models;
+﻿using EscapeFromTheWoods_Asynchroon.interfaces;
+using EscapeFromTheWoods_Asynchroon.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +10,7 @@ namespace EscapeFromTheWoods_Asynchroon
     class ReportWriter
     {
         private string _reportsPath = @"D:\Programmeren Data en Bestanden\EscapeFromTheWoods\reports";
-        public void WriteReport(Wood wood)
+        public void WriteReport(iWood wood)
         {
             Console.WriteLine($"REPORT: started writing report for {wood.Id}");
             using (StreamWriter writer = File.CreateText(Path.Combine(_reportsPath, $"Wood {wood.Id} Log.txt")))

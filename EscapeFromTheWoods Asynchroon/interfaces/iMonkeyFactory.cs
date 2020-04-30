@@ -5,8 +5,8 @@ using System.Text;
 
 namespace EscapeFromTheWoods_Asynchroon.interfaces
 {
-    interface iMonkeyGenerator
+    interface iMonkeyFactory
     {
-        List<Monkey> GenerateMonkeys(int amount);
+        public List<iMonkey> GetMonkeys(int amount, MonkeyTypes monkeytype);
     }
 }

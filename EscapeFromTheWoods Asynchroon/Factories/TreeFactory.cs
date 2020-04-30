@@ -16,9 +16,19 @@ namespace EscapeFromTheWoods_Asynchroon.Factories
             X = x;
             Y = y;
         }
-        public List<Tree> MakeTrees(int amount)
+        public List<iTree> MakeTrees(int amount,TreeTypes treetype)
         {
-            List<Tree> trees = new List<Tree>();
+            switch (treetype)
+            {
+                case TreeTypes.Standard:
+                    return MakeStandardTrees(amount);
+                default:
+                    return MakeStandardTrees(amount);
+            }
+        }
+        public List<iTree> MakeStandardTrees(int amount)
+        {
+            List<iTree> trees = new List<iTree>();
             Dictionary<int, List<int>> doubleCheck = new Dictionary<int, List<int>>();
             for(int i = 0; i < amount; i++)
             {
