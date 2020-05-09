@@ -30,19 +30,38 @@ namespace EscapeFromTheWoods_Asynchroon
             letLooseW2.Start();
 
 
+            //upload the layout of the woods(no monkey movement needed)
+            Thread treeUploader1 = new Thread(() => dbWriter.UploadWoodRecords(wood1));
+            treeUploader1.Start();
+
+            Thread treeUploader2 = new Thread(() => dbWriter.UploadWoodRecords(wood2));
+            treeUploader2.Start();
+
+            //report on the first one
             letLooseW1.Join();
             Thread draw1 = new Thread(() => mapDrawer.DrawMap(wood1));
             draw1.Start();
-            Thread dataWriter1 = new Thread(() => dbWriter.FillDataBase(wood1));
-            dataWriter1.Start();
+
+            Thread logUploader1 = new Thread(() => dbWriter.UploadLogs(wood1));
+            logUploader1.Start();
+            Thread monkeyUploader1 = new Thread(() => dbWriter.UploadMonkeyRecords(wood1));
+            monkeyUploader1.Start();
+
             Thread reporter1 = new Thread(() => reportWriter.WriteReport(wood1));
             reporter1.Start();
 
+
+            //report on the second one
             letLooseW2.Join();
+
             Thread draw2 = new Thread(() => mapDrawer.DrawMap(wood2));
             draw2.Start();
-            Thread dataWriter2 = new Thread(() => dbWriter.FillDataBase(wood2));
-            dataWriter2.Start();
+
+            Thread logUploader2 = new Thread(() => dbWriter.UploadLogs(wood2));
+            logUploader2.Start();
+            Thread monkeyUploader2 = new Thread(() => dbWriter.UploadMonkeyRecords(wood2));
+            monkeyUploader2.Start();
+
             Thread reporter2 = new Thread(() => reportWriter.WriteReport(wood2));
             reporter2.Start();
 

@@ -30,7 +30,7 @@ namespace EscapeFromTheWoods_Asynchroon
             pens[9] = new Pen(Color.DarkBlue, 4);
 
             Brush[] brushes = new Brush[10];
-            brushes[0] = new SolidBrush(Color.Green);
+            brushes[0] = new SolidBrush(Color.Purple);
             brushes[1] = new SolidBrush(Color.Red);
             brushes[2] = new SolidBrush(Color.Blue);
             brushes[3] = new SolidBrush(Color.Yellow);

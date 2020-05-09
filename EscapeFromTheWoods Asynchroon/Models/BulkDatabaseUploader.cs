@@ -23,6 +23,7 @@ namespace EscapeFromTheWoods_Asynchroon
         }
         public void UploadLogs(iWood wood)
         {
+            Console.WriteLine($"DATABASE WOODLOGS: Started Writing woodlogs to database for {wood.Id}");
             using (SqlConnection connection = GetConnection())
             {
                 connection.Open();
@@ -48,10 +49,12 @@ namespace EscapeFromTheWoods_Asynchroon
                     bulkCopy.WriteToServer(table);
                 }
             }
+            Console.WriteLine($"DATABASE WOODLOGS: finished Writing woodlogs to database for {wood.Id}");
         }
         public void UploadWoodRecords(iWood wood)
         {
-            using(SqlConnection connection = GetConnection())
+            Console.WriteLine($"DATABASE WOODRECORDS: Started Writing woodrecords to database for {wood.Id}");
+            using (SqlConnection connection = GetConnection())
             {
                 connection.Open();
                 using(SqlBulkCopy bulkCopy = new SqlBulkCopy(connection)){
@@ -73,9 +76,11 @@ namespace EscapeFromTheWoods_Asynchroon
                     bulkCopy.WriteToServer(table);
                 }
             }
+            Console.WriteLine($"DATABASE WOODRECORDS: Finished Writing woodrecords to database for {wood.Id}");
         }
         public void UploadMonkeyRecords(iWood wood)
         {
+            Console.WriteLine($"DATABASE MONKEYRECORDS: Started Writing monkeyrecords to database for {wood.Id}");
             using (SqlConnection connection = GetConnection())
             {
                 connection.Open();
@@ -107,6 +112,7 @@ namespace EscapeFromTheWoods_Asynchroon
                     bulkCopy.WriteToServer(table);
                 }
             }
+            Console.WriteLine($"DATABASE MONKEYRECORDS: Finished Writing monkeyrecords to database for {wood.Id}");
         }
     }
 }

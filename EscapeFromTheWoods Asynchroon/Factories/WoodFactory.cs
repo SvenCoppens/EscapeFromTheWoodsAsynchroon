@@ -17,8 +17,11 @@ namespace EscapeFromTheWoods_Asynchroon.Factories
         public iWood CreateWood(int maxX,int maxY, int numberOfTrees, List<iMonkey> monkeys)
         {
             int iD = IdGenerator.GetNextId();
+            Console.WriteLine($"FACTORY: started creating Wood{iD}");
             List<Tree> trees = TreeFactory.MakeTrees(numberOfTrees,maxX,maxY);
             Wood wood = new Wood(iD, maxX, maxY,monkeys,trees);
+
+            Console.WriteLine($"FACTORY: finished creating Wood{iD}");
             return wood;
         }
         
