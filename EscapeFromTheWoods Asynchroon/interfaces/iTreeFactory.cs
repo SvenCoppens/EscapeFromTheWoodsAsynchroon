@@ -7,6 +7,6 @@ namespace EscapeFromTheWoods_Asynchroon.interfaces
 {
     interface iTreeFactory
     {
-        List<iTree> MakeTrees(int amount,TreeTypes treetype);
+        List<Tree> MakeTrees(int amount,int xDimension,int yDimension);
     }
 }

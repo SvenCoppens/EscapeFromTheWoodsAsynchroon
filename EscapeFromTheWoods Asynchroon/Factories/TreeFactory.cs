@@ -9,32 +9,15 @@ namespace EscapeFromTheWoods_Asynchroon.Factories
 {
     class TreeFactory : iTreeFactory
     {
-        private int X { get; set; }
-        private int Y { get; set; }
-        public TreeFactory(int x,int y)
+        public List<Tree> MakeTrees(int amount,int xDimension,int yDimension)
         {
-            X = x;
-            Y = y;
-        }
-        public List<iTree> MakeTrees(int amount,TreeTypes treetype)
-        {
-            switch (treetype)
-            {
-                case TreeTypes.Standard:
-                    return MakeStandardTrees(amount);
-                default:
-                    return MakeStandardTrees(amount);
-            }
-        }
-        public List<iTree> MakeStandardTrees(int amount)
-        {
-            List<iTree> trees = new List<iTree>();
+            List<Tree> trees = new List<Tree>();
             Dictionary<int, List<int>> doubleCheck = new Dictionary<int, List<int>>();
-            for(int i = 0; i < amount; i++)
+            for (int i = 0; i < amount; i++)
             {
                 Random random = new Random();
-                int x = random.Next(X);
-                int y = random.Next(Y);
+                int x = random.Next(xDimension);
+                int y = random.Next(yDimension);
                 Tree nextTree = new Tree(i, x, y);
                 if (doubleCheck.ContainsKey(x))
                 {

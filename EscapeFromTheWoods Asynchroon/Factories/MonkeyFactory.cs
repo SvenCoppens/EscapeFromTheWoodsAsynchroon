@@ -16,9 +16,9 @@ namespace EscapeFromTheWoods_Asynchroon.Factories
         {
             MonkeyNames = new Dictionary<int, string>();
             MonkeyPath = @"D:\Programmeren Data en Bestanden\EscapeFromTheWoods\Monkeys.txt";
-            LoadMonkeys();
+            LoadMonkeyNames();
         }
-        private void LoadMonkeys()
+        private void LoadMonkeyNames()
         {
             Monkeys = new List<iMonkey>();
             if (File.Exists(MonkeyPath))
@@ -66,19 +66,20 @@ namespace EscapeFromTheWoods_Asynchroon.Factories
                 for (int i = monkeyResult.Count; i < amount; i++)
                 {
                     //load enough monkeys to fill the Wood
-                    FillMonkeyReserve();
+                    CreateNewMonkey();
                 }
-                //save the monkeys to the local file
+                //save the monkeys to the local file if he had to generate new ones
+                if(Monkeys.Count>MonkeyNames.Count)
                 SaveMonkeys();
             }
             for (int i = 0; i < amount; i++)
             {
-                //create now instances of the Monkeys with the same Id and name but a seperate list of visited trees so multiple Woods can be run at the same time if ever needed.
+                //create new instances of the Monkeys with the same Id and name but a seperate list of visited trees so multiple Woods can be run at the same time if ever needed.
                 monkeyResult.Add(new Monkey(Monkeys[i].Id,Monkeys[i].Name));
             }
             return monkeyResult;
         }
-        private void FillMonkeyReserve()
+        private void CreateNewMonkey()
         {
             int Id = Monkeys.Count + 1;
             if (Id < MonkeyNames.Count)

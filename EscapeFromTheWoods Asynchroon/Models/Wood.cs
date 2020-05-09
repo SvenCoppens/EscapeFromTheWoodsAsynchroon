@@ -11,10 +11,10 @@ namespace EscapeFromTheWoods_Asynchroon.Models
         public int Id { get; set; }
         public int maximumX { get; set; }
         public int MaximumY { get; set; }
-        public List<iTree> Trees { get; set; }
+        public List<Tree> Trees { get; set; }
         public List<iMonkey> Monkeys { get; set; }
         private int _escapedMonkeys = 0;
-        public Wood(int id,int X,int Y,List<iMonkey> monkeys,List<iTree> trees)
+        public Wood(int id,int X,int Y,List<iMonkey> monkeys,List<Tree> trees)
         {
             Id = id;
             maximumX = X;
@@ -34,7 +34,7 @@ namespace EscapeFromTheWoods_Asynchroon.Models
                 {
                     index = random.Next(Trees.Count);
                 }
-                Monkeys[i].VisitedTrees = new List<iTree> { Trees[index] };
+                Monkeys[i].VisitedTrees = new List<Tree> { Trees[index] };
             }
         }
         public void LetTheMonkeysLoose()

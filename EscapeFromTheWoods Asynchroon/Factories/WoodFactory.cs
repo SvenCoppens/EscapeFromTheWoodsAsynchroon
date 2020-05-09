@@ -10,17 +10,16 @@ namespace EscapeFromTheWoods_Asynchroon.Factories
     class WoodFactory : iWoodFactory
     {
         public iTreeFactory TreeFactory { get; set; }
+        public WoodFactory(iTreeFactory treeFactory)
+        {
+            TreeFactory = treeFactory;
+        }
         public iWood CreateWood(int maxX,int maxY, int numberOfTrees, List<iMonkey> monkeys)
         {
-            TreeFactory = new TreeFactory(maxX, maxY);
             int iD = IdGenerator.GetNextId();
-            List<iTree> trees = FillWithTrees(numberOfTrees);
+            List<Tree> trees = TreeFactory.MakeTrees(numberOfTrees,maxX,maxY);
             Wood wood = new Wood(iD, maxX, maxY,monkeys,trees);
             return wood;
-        }
-        public List<iTree> FillWithTrees(int amount)
-        {
-            return TreeFactory.MakeTrees(amount,TreeTypes.Standard);
         }
         
     }
