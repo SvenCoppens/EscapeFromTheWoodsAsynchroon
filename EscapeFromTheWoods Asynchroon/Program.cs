@@ -23,11 +23,12 @@ namespace EscapeFromTheWoods_Asynchroon
             List<iMonkey> monkeys1 = monkeyFactory.GetMonkeys(4, MonkeyTypes.Standard);
             List<iMonkey> monkeys2 = monkeyFactory.GetMonkeys(8, MonkeyTypes.Standard);
             var wood1 = woodFactory.CreateWood(100, 100,500,monkeys1);
-            var wood2 = woodFactory.CreateWood(200, 200,1000,monkeys2);
+            var wood2 = woodFactory.CreateWood(200, 200,1500,monkeys2);
             Thread letLooseW1 = new Thread(wood1.LetTheMonkeysLoose);
             letLooseW1.Start();
             Thread letLooseW2 = new Thread(wood2.LetTheMonkeysLoose);
             letLooseW2.Start();
+
 
             letLooseW1.Join();
             Thread draw1 = new Thread(() => mapDrawer.DrawMap(wood1));

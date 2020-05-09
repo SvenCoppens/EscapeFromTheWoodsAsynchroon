@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EscapeFromTheWoods_Asynchroon.Models.Monkey" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAEAAAEAAAABAAwAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Monkey.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="EscapeFromTheWoods_Asynchroon.Models.Tree" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAgAAAAAAAAAAAAIAAAAAAAAAAYAA=</HashCode>
+      <FileName>Models\Tree.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.1" Collapsed="true" />
+  </Class>
+  <Class Name="EscapeFromTheWoods_Asynchroon.Models.Wood" BaseTypeListCollapsed="true">
+    <Position X="6" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACEAAAAAEAAAEIAAAAAQgAAoAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Wood.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="EscapeFromTheWoods_Asynchroon.Factories.MonkeyFactory" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAIgAIABAAAAAACAAAAAACAAIAAAAA=</HashCode>
+      <FileName>Factories\MonkeyFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="EscapeFromTheWoods_Asynchroon.Factories.TreeFactory" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\TreeFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="EscapeFromTheWoods_Asynchroon.Factories.WoodFactory" BaseTypeListCollapsed="true">
+    <Position X="4.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Factories\WoodFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="EscapeFromTheWoods_Asynchroon.BulkDatabaseUploader" BaseTypeListCollapsed="true">
+    <Position X="10" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAQEAAAAAAAAAAAAAAIAAAAAJAAAAA=</HashCode>
+      <FileName>Models\BulkDatabaseUploader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="EscapeFromTheWoods_Asynchroon.BitmapDrawer">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>BitmapDrawer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EscapeFromTheWoods_Asynchroon.IdGenerator">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAABAAAAAAQAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>IdGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EscapeFromTheWoods_Asynchroon.ReportWriter">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ReportWriter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="EscapeFromTheWoods_Asynchroon.interfaces.iDatabaseFiller">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAQEAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>interfaces\iDatabaseFiller.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EscapeFromTheWoods_Asynchroon.interfaces.iMonkey">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAEAAAAAAAABAAwAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>interfaces\iMonkey.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EscapeFromTheWoods_Asynchroon.interfaces.iMonkeyFactory">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>interfaces\iMonkeyFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EscapeFromTheWoods_Asynchroon.interfaces.iTreeFactory">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>interfaces\iTreeFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EscapeFromTheWoods_Asynchroon.interfaces.iWood">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACEAAAAAEAAAAIAAAAAQAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>interfaces\iWood.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EscapeFromTheWoods_Asynchroon.interfaces.iWoodFactory">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>interfaces\iWoodFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="EscapeFromTheWoods_Asynchroon.MonkeyTypes" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\MonkeyTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EscapeFromTheWoods_Asynchroon.Enums.WoodTypes" Collapsed="true">
+    <Position X="6" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\WoodTypes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
